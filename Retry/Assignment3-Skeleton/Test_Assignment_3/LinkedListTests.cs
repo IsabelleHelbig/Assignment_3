@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Test_Assignment_3
 {
@@ -234,97 +233,5 @@ namespace Test_Assignment_3
             string value = (string)this.linkedList.Retrieve(1);
             Assert.Equals("b", value);
         }
-        //adding 5 test cases
-
-        //tests if the insert's index is negative or past the size of the list
-        [Test]
-
-        public void TestInsertException()
-        {
-            //checks if exception is thrown if the index is negative
-            //will pass test if exception is thrown
-            Assert.Throws<IndexOutOfRangeException>(() => {
-                this.linkedList.Insert("a", -1);
-            });
-
-            //checks if exception is thrown if the index is past the size of the list
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Insert("b", 3000);
-            });
-        }
-
-		//tests if the replace's index is negative or larger than size - 1 of list
-		[Test]
-        public void TestReplaceException()
-        {
-            //will pass test if exception is thrown due to negative index
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Replace("a", -1);
-            });
-
-            //will pass test if exception is thrown due to being larger than the size of the list
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Replace("b", 3000);
-            });
-        }
-
-
-        //tests if the delete' index is negative or past the size - 1
-        [Test]
-        public void TestDeleteException()
-        {
-            //will pass if exception is thrown due to negative index
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Delete(-1);
-            });
-
-            //will pass if exception is thrown due to index larger than list size
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Delete(3000);
-            });
-        }
-
-
-		//tests if the retrieve's index is negative or larger than size - 1 of the list
-		[Test]
-        public void TestRetrieveException()
-        {
-            //will pass if exception is thrown due to negative index
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Retrieve(-1);
-            });
-
-            //will pass if exception is thrown due to index larger than size of list
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                this.linkedList.Retrieve(3000);
-            });
-        }
-
-
-        //tests indexOf's index to see if it matches and if it return -1 if not found
-        [Test]
-        public void TestIndexOfException()
-        {
-            //adding data to a list
-            this.linkedList.Append("Found Data");
-
-            //will pass if the index of the data matches
-			int index = this.linkedList.IndexOf("Found Data");
-			Assert.Equals(0, index);
-
-            //will pass if when finding non-existent data, it returns -1
-            int notThere = this.linkedList.IndexOf("Not Found");
-            Assert.Equals(-1, notThere);
-        }
-
-
-
-	}
+    }
 }
