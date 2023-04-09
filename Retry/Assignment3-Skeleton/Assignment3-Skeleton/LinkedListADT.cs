@@ -41,7 +41,7 @@ namespace Assignment_3_skeleton
 
         //Removes element at index from list, reducing the size.
         //parameter index Index of element to remove.
-        //throws exception IndexOutOfRangeException Thrown if index is negative or past the size - 1.
+        //throws exception IndexOutOfBoundsException Thrown if index is negative or past the size - 1.
         void Delete(int index);
 
         //Gets the data at the specified index.
