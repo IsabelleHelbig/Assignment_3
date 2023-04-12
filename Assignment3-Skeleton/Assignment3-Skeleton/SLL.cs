@@ -38,7 +38,7 @@ namespace Assignment_3_skeleton
 			// the list is empty
 			if (this._head == null)
 			{
-				this._head = newNode;
+				this._head = this._tail = newNode;
 			}
 
 			// if not empty
