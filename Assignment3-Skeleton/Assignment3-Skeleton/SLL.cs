@@ -122,6 +122,10 @@ namespace Assignment_3_skeleton
 
 		public void Insert(object data, int index)
 		{
+			if (index < 0 || index > this.Size())
+			{
+				throw new IndexOutOfRangeException();
+			}
 			Node newNode = new Node(data);
 
 			if (index == 0)
@@ -143,8 +147,6 @@ namespace Assignment_3_skeleton
 
 			newNode.Next = current.Next;
 			current.Next = newNode;
-
-			//throw new NotImplementedException();
 		}
 
 		public bool IsEmpty()
@@ -174,10 +176,15 @@ namespace Assignment_3_skeleton
 
 		public void Replace(object data, int index)
 		{
+			if (index < 0 || index > this.Size())
+			{
+				throw new IndexOutOfRangeException();
+			}
 			Node newNode = new Node(data);
 
 			if (index == 0)
 			{
+				newNode.Next = this._head.Next;
 				this._head = newNode;
 				return;
 			}
@@ -192,13 +199,16 @@ namespace Assignment_3_skeleton
 				current = current.Next;
 			}
 
-			newNode.Next = current.Next;
-			current = newNode;
-			//throw new NotImplementedException();
+			newNode.Next = current.Next.Next;
+			current.Next = newNode;
 		}
 
 		public object Retrieve(int index)
 		{
+			if (index < 0 || index > this.Size())
+			{
+				throw new IndexOutOfRangeException();
+			}
 			Node current = this._head;
 			for (int i = 0; i < index; i++)
 			{
@@ -209,7 +219,6 @@ namespace Assignment_3_skeleton
 				current = current.Next;
 			}
 			return current.Data;
-			//throw new NotImplementedException();
 		}
 
 		public int Size()
