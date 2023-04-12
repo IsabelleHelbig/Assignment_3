@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Assignment_3_skeleton
 {
-    public static class SerializationHelper
+ //serializes the data through reading and writing objects
+	public static class SerializationHelper
     {
         public static void SerializeUsers(List<User> users, string fileName)
         {
