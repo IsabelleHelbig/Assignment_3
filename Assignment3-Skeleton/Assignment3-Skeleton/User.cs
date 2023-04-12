@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment_3_skeleton
 {
-    public class User
+	[DataContract]
+	public class User
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+		[DataMember]
+		public int Id { get; set; }
+		[DataMember]
+		public string Name { get; set; }
+		[DataMember]
+		public string Email { get; set; }
+		[DataMember]
+		public string Password { get; set; }
 
-        public string Password;
-
-        //Initializes a User object.
-        public User(int id, string name, string email, string password)
+		public User()
+		{
+		}
+		//Initializes a User object.
+		public User(int id, string name, string email, string password)
         {
             Id = id;
             Name = name;

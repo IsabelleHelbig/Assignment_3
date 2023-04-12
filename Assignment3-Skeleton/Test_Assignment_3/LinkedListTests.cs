@@ -243,7 +243,8 @@ namespace Test_Assignment_3
         {
             //checks if exception is thrown if the index is negative
             //will pass test if exception is thrown
-            Assert.Throws<IndexOutOfRangeException>(() => {
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
                 this.linkedList.Insert("a", -1);
             });
 
