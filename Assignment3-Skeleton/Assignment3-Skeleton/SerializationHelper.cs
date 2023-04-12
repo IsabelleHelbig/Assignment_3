@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Assignment_3_skeleton
 {
@@ -27,5 +28,25 @@ namespace Assignment_3_skeleton
                 return (List<User>)serializer.ReadObject(stream);
             }
         }
-    }
+
+
+		public static void SerializeSLL(SLL sll, string fileName)
+		{
+			BinaryFormatter formatter = new BinaryFormatter();
+			using (FileStream stream = File.Create(fileName))
+			{
+				formatter.Serialize(stream, sll);
+			}
+		}
+
+		public static SLL DeserializeSLL(string fileName)
+		{
+			BinaryFormatter formatter = new BinaryFormatter();
+			using (FileStream stream = File.OpenRead(fileName))
+			{
+				return (SLL)formatter.Deserialize(stream);
+			}
+		}
+	}
+
 }
